@@ -1,10 +1,46 @@
 package objetos_de_referencia;
 
-public class Kit extends ObjetoDominio {
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-	public Kit(long codigo) {
-		super(codigo);
-		// TODO Auto-generated constructor stub
+public class Kit extends Produto {
+
+	private BigDecimal ajustePreco;
+	ArrayList<Produto> filhos = new ArrayList<Produto>(); //Visibilidade liberada ao package para fins de teste;
+	
+	public Kit(long codigo, String nome, String descricao, BigDecimal pesoEmKg, BigDecimal ajustePreco) {
+		super(codigo, nome, descricao, pesoEmKg);
+		this.ajustePreco = ajustePreco;
+	}
+
+	@Override
+	public BigDecimal getPreco() {
+		BigDecimal preco = new BigDecimal("0.00");
+		for (Produto produto: filhos){
+			preco = preco.add(((ProdutoSimples)produto).getPreco());
+		}
+		return preco.subtract(preco.multiply(this.getAjustePreco())).setScale(2, BigDecimal.ROUND_CEILING);
+	}
+	
+	public void adicionarFilho(Produto filho){
+		this.filhos.add(filho);
+	}
+	
+	public void removerFilho(Produto filho) {
+		this.filhos.remove(filho);
+	}
+	
+	public Iterator<Produto> getFilhos(){
+		return this.filhos.iterator();
+	}
+
+	public BigDecimal getAjustePreco() {
+		return ajustePreco;
+	}
+
+	public void setAjustePreco(BigDecimal ajustePreco) {
+		this.ajustePreco = ajustePreco;
 	}
 
 }
