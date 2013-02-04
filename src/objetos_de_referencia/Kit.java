@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class Kit extends Produto {
 
 	private BigDecimal ajustePreco;
-	ArrayList<Produto> filhos = new ArrayList<Produto>(); //Visibilidade liberada ao package para fins de teste;
+	private ArrayList<Produto> filhos = new ArrayList<Produto>();
 	
 	public Kit(long codigo, String nome, String descricao, BigDecimal pesoEmKg, BigDecimal ajustePreco) {
 		super(codigo, nome, descricao, pesoEmKg);
