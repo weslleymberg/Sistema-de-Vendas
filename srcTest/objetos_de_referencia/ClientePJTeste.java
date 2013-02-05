@@ -27,6 +27,7 @@ public class ClientePJTeste {
 	@Test(expected=IllegalArgumentException.class)
 	public void deve_retornar_uma_excecao_no_cnpj() {
 		// TODO pesquisar chamada do metodo 'getCpf' a partir de Cliente;
+		@SuppressWarnings("unused")
 		ClientePJ cliente = new ClientePJ(1234, "Weslleymberg", "Campos", "99312376", new BigDecimal("0.2"), new Cnpj("1234567890123"));
 	}
 

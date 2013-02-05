@@ -22,7 +22,7 @@ public class KitTeste {
 	private ArrayList<Produto> produtos;
 	
 	@Before
-	public void setUp() {
+	public void setUp() throws Exception {
 		kit = new Kit(1234, "Eletronicos", "Kit completo", new BigDecimal("0"), new BigDecimal("0.2"));
 		produto1 = new ProdutoSimples(1234, "Xperia Neo", "Aparelho", new BigDecimal("2"), new BigDecimal("800.00"));
 		produto2 = new ProdutoSimples(1231, "Sony Headset", "Acessórios", new BigDecimal("2"), new BigDecimal("100.00"));

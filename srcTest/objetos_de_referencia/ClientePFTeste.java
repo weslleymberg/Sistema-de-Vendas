@@ -26,6 +26,7 @@ public class ClientePFTeste {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void deve_retornar_uma_excecao_no_cnpj() {
+		@SuppressWarnings("unused")
 		ClientePF cliente = new ClientePF(1234, "Weslleymberg", "Campos", "99312376", new BigDecimal("0.2"), new Cpf("1234567890123"));
 	}
 

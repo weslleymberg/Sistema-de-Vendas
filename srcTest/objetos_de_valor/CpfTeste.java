@@ -22,7 +22,7 @@ public class CpfTeste {
 	}
 	
 	//Já que os testes não puderam ser feitos na classe super,
-	//o teste será feito através de uma instância;
+	//estes serão feitos através de uma instância;
 	@Test
 	public void deve_comparar_cpf_e_retornar_true() {
 		DocIdentificador cpf1 = new Cpf("1234567890");
