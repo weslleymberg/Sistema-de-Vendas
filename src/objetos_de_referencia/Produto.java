@@ -48,12 +48,12 @@ public abstract class Produto extends ObjetoDominio {
 
 	public abstract BigDecimal getPreco();
 	
-	public BigDecimal calcularPreco(BigDecimal qtde){
+	final public BigDecimal calcularPreco(BigDecimal qtde){
 		return qtde.multiply(this.getPreco()).setScale(2, BigDecimal.ROUND_CEILING);
 	}
 	
-	public BigDecimal calcularFrete(BigDecimal valorKg, BigDecimal qtde){
-		return qtde.multiply(valorKg).setScale(2, BigDecimal.ROUND_CEILING);
+	final public BigDecimal calcularFrete(BigDecimal valorKg, BigDecimal qtde){
+		return qtde.multiply(valorKg.multiply(this.getPesoEmKg())).setScale(2, BigDecimal.ROUND_CEILING);
 	}
 
 }
