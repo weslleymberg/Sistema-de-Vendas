@@ -7,7 +7,7 @@ public class Item extends ObjetoDominio {
 	private BigDecimal qtde;
 	private Produto produto;
 	private BigDecimal preco;
-	private BigDecimal qtdeEntregue;
+	private BigDecimal qtdeEntregue = new BigDecimal("0");
 
 	Item(long codigo, Produto produto, BigDecimal qtde) {
 		super(codigo);
@@ -46,7 +46,15 @@ public class Item extends ObjetoDominio {
 
 
 	public void setQtdeEntregue(BigDecimal qtdeEntregue) {
-		this.qtdeEntregue = qtdeEntregue;
+		if (!(this.concluido())){
+			if (this.getQtdeEntregue().add(qtdeEntregue).compareTo(this.getQtde()) <= 0)
+				this.qtdeEntregue = this.qtdeEntregue.add(qtdeEntregue);
+			else {
+				throw new IllegalArgumentException("Você está entregando mais do que a quantidade pedida!");
+			}
+		} else {
+			throw new IllegalArgumentException("Entrega do produto já foi concluida!");
+		}
 	}
 
 

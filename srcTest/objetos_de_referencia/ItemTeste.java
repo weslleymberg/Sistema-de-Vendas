@@ -45,7 +45,7 @@ public class ItemTeste {
 	public void deve_dizer_se_a_entrega_foi_concluida_ou_nao() {
 		item.setQtdeEntregue(new BigDecimal("2"));
 		assertThat(item.concluido(), is(false));
-		item.setQtdeEntregue(new BigDecimal("3"));
+		item.setQtdeEntregue(new BigDecimal("1"));
 		assertThat(item.concluido(), is(true));
 	}
 
