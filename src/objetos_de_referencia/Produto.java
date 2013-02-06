@@ -15,36 +15,29 @@ public abstract class Produto extends ObjetoDominio {
 		this.pesoEmKg = pesoEmKg;
 	}
 	
-
 	public String getNome() {
 		return nome;
 	}
-
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-
 	public String getDescricao() {
 		return descricao;
 	}
-
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
-
 	public BigDecimal getPesoEmKg() {
 		return pesoEmKg;
 	}
 
-
 	public void setPesoEmKg(BigDecimal pesoEmKg) {
 		this.pesoEmKg = pesoEmKg;
 	}
-
 
 	public abstract BigDecimal getPreco();
 	

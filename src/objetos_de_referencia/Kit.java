@@ -24,10 +24,12 @@ public class Kit extends Produto {
 	}
 	
 	public void adicionarFilho(Produto filho){
+		this.setPesoEmKg(this.getPesoEmKg().add(filho.getPesoEmKg()));
 		this.filhos.add(filho);
 	}
 	
 	public void removerFilho(Produto filho) {
+		this.setPesoEmKg(this.getPesoEmKg().subtract(filho.getPesoEmKg()));
 		this.filhos.remove(filho);
 	}
 	
